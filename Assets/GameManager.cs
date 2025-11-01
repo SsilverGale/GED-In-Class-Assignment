@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public int Score;
     public int inputKey;
     [SerializeField] public GameObject cat;
+    [SerializeField] public GameObject angyCat;
     Quaternion catRotation = Quaternion.Euler(270, 180, 0);
 
     //Base singleton setup
@@ -34,6 +35,10 @@ public class GameManager : MonoBehaviour
     public void spawnCat()
     {
         Instantiate(cat, new Vector3(Random.Range(-5, 5), 5, Random.Range(-5, 5)), catRotation);
+    }
+    public void spawnAngyCat()
+    {
+        Instantiate(angyCat, new Vector3(Random.Range(-5, 5), 5, Random.Range(-5, 5)), catRotation);
     }
     public int getScore()
     {

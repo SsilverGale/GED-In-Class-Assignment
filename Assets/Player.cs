@@ -12,52 +12,134 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0) && (key == 0))
+        switch (key)
         {
-            newKey();
+            case 0:
+
+                if (Input.GetKeyDown(KeyCode.Alpha0))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
+            case 1:
+
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
+            case 2:
+
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
+            case 3:
+
+                if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
+            case 4:
+
+                if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
+            case 5:
+
+                if (Input.GetKeyDown(KeyCode.Alpha5))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
+            case 6:
+
+                if (Input.GetKeyDown(KeyCode.Alpha6))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
+            case 7:
+
+                if (Input.GetKeyDown(KeyCode.Alpha7))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
+            case 8:
+
+                if (Input.GetKeyDown(KeyCode.Alpha8))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
+            case 9:
+
+                if (Input.GetKeyDown(KeyCode.Alpha9))
+                {
+                    correctKey();
+                }
+                else if(Input.anyKeyDown)
+                {
+                    incorrectKey();
+                }
+                break;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha1) && (key == 1))
-        {
-            newKey();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && (key == 2))
-        {
-            newKey();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && (key == 3))
-        {
-            newKey();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && (key == 4))
-        {
-            newKey();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5) && (key == 5))
-        {
-            newKey();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6) && (key == 6))
-        {
-            newKey();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7) && (key == 7))
-        {
-            newKey();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha8) && (key == 8))
-        {
-            newKey();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha9) && (key == 9))
-        {
-            newKey();
-        }
+        
+
     }
 
-    private void newKey()
+    private void correctKey()
     {
-            GameManager.Instance.spawnCat();
-            GameManager.Instance.addScore(1);
+        GameManager.Instance.spawnCat();
+        GameManager.Instance.addScore(1);
+        GameManager.Instance.generateNewKey();
+        key = GameManager.Instance.getKey();
+    }
+        private void incorrectKey()
+    {
+            GameManager.Instance.spawnAngyCat();
+            GameManager.Instance.addScore(-1);
             GameManager.Instance.generateNewKey();
             key = GameManager.Instance.getKey();
     }

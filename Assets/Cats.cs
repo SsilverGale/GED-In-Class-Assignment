@@ -4,9 +4,9 @@ public class Cats : MonoBehaviour
 {
     void Update()
     {
-        if (this.transform.position.y < -10f)
+        if (transform.position.y < -10f)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
