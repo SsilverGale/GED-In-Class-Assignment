@@ -1,18 +1,10 @@
 Jacob Coleman 100829087
 Title: Number Catz
 
-Description: There will be a number on your screen from 0-9. Press the number key coorilating to the number on screen to create a cat
+Description: There will be a number on your screen from 0-9. Press the number key coorilating to the number on screen to create a cat. Pressing the right number gives you a point and pressing the wrong one losses you points.
 
-Diagram: https://www.figma.com/board/pe5Bu7F2WvfeBRKnj04Bec/Number-Catz?node-id=1-2&t=jYXvQgZmO5WxJGId-1 
+Diagram: https://docs.google.com/presentation/d/1HmUZlxJnAUEGAxVjplF-jG6J_waC8USrzGPxhpIREAw/edit?usp=sharing
 
 Reflection:
 
-What system within your project uses a Singleton, and why did you choose this system to adopt the pattern? 
-
-I did the game manager, which in my case was used to store global variables and have global functions.
-Since it kept track of score, amugst other variables, the project wouldn't really work if htere was more than 1 of them so a singleton was the perfect format for this project.
-It also makes it much easier to access all of these variables with other objects in the scene.
-
-Do you think this design pattern is beneficial for this purpose? Explain why or why not.
-
-I feel like it was benefitial as it was much easier to access the variables. However it was also unessisary as not many variables were really used in more than 1 script.
+This project utilizes the Observer pattern very well I think. I used it to make a pause and unpause event and thos event interact differently with the UI manager, players script, and cat script differently but all of them need to be able to respond to pausing and unpuasing so it's the perfect choice to add this functionality. 
