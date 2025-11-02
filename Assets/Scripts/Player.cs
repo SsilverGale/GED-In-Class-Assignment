@@ -1,18 +1,35 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public int key;
+    private bool paused = false;
+    [SerializeField] private GameManager _gamemanager;
     void Start()
     {
         GameManager.Instance.generateNewKey();
         key = GameManager.Instance.getKey();
     }
-
+    private void OnEnable()
+    {
+        _gamemanager.pause += Pause;
+        _gamemanager.unpause += unPause;
+    }
+    private void Pause()
+    {
+        paused = true;
+    }
+    private void unPause()
+    {
+        paused = false;
+    }
     // Update is called once per frame
     void Update()
     {
-        switch (key)
+        if (!paused)
+        {
+            switch (key)
         {
             case 0:
 
@@ -20,7 +37,7 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown&& !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
@@ -31,7 +48,7 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown&& !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
@@ -42,7 +59,7 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown&& !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
@@ -53,7 +70,7 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown&& !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
@@ -64,7 +81,7 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown&& !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
@@ -75,7 +92,7 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown&& !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
@@ -86,7 +103,7 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown&& !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
@@ -97,7 +114,7 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown&& !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
@@ -108,7 +125,7 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown&& !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
@@ -119,14 +136,13 @@ public class Player : MonoBehaviour
                 {
                     correctKey();
                 }
-                else if(Input.anyKeyDown)
+                else if(Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     incorrectKey();
                 }
                 break;
         }
-        
-
+        }
     }
 
     private void correctKey()
@@ -136,11 +152,12 @@ public class Player : MonoBehaviour
         GameManager.Instance.generateNewKey();
         key = GameManager.Instance.getKey();
     }
-        private void incorrectKey()
+    private void incorrectKey()
     {
-            GameManager.Instance.spawnAngyCat();
-            GameManager.Instance.addScore(-1);
-            GameManager.Instance.generateNewKey();
-            key = GameManager.Instance.getKey();
+        GameManager.Instance.spawnAngyCat();
+        GameManager.Instance.addScore(-1);
+        GameManager.Instance.generateNewKey();
+        key = GameManager.Instance.getKey();
     }
+
 }
