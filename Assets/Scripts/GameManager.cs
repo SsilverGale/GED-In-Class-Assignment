@@ -71,6 +71,9 @@ public class GameManager : MonoBehaviour
     {
         return inputKey;
     }
-
+    public void closeGame()
+    {
+        Application.Quit();
+    }
 
 }
